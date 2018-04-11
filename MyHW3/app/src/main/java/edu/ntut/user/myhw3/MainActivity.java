@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTxtNumFamily;
     private Button mBtnOK;
     private TextView mTxtSug;
+    private TextView mTxtHabbit;
     private CheckBox mcheBox1;
     private CheckBox mcheBox2;
     private CheckBox mcheBox3;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         mRadGrp = (RadioGroup) findViewById(R.id.radGrpSex);
         mBtnOK = (Button) findViewById(R.id.btnOK);
         mTxtSug = (TextView) findViewById(R.id.txtSug);
+        mTxtHabbit=(TextView)findViewById(R.id.txtHabbit);
         mcheBox1= (CheckBox) findViewById(R.id.CheckClimbing);
         mcheBox2= (CheckBox) findViewById(R.id.CheckMusic);
         mcheBox3= (CheckBox) findViewById(R.id.CheckDance);
@@ -62,65 +64,70 @@ public class MainActivity extends AppCompatActivity {
         mBtnOK.setOnClickListener(btnOKOnClick);
     }
 
-
-    private NumberPicker.OnValueChangeListener numPkrFamilyOnValueChange = new NumberPicker.OnValueChangeListener() {
-        @Override
-        public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-            mTxtNumFamily.setText(String.valueOf(newVal));
-        }
-    };
-
     private View.OnClickListener btnOKOnClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
             MarriageSuggestion ms = new MarriageSuggestion();
-
-            String strSex = mSpnAge.getSelectedItem().toString();
-            String strSug = "建議：";
+            String strSex="";
+            String strAge = mSpnAge.getSelectedItem().toString();
             int iAgeRange = 0;
                 switch (mRadGrp.getCheckedRadioButtonId()) {
                     case R.id.RadioMale:
-                        strSug+="男性　";
-                        strSug+=mSpnAge.getSelectedItem().toString()+" ";
+                        strSex+="male";
+                        if(mSpnAge.getSelectedItem().toString()==getText(R.string.maleAgeRange1)){
+                            iAgeRange=1;
+                        }else if(mSpnAge.getSelectedItem().toString()==getText(R.string.maleAgeRange1)){
+                            iAgeRange=2;
+                        }else{
+                            iAgeRange=3;
+                        }
                         break;
                     case R.id.RadioFemale:
-                        strSug+="女性　";
-                        strSug+=mSpnAge2.getSelectedItem().toString()+" ";
+                        strSex+="female";
+                        if(mSpnAge.getSelectedItem().toString()==getText(R.string.maleAgeRange1)){
+                            iAgeRange=1;
+                        }else if(mSpnAge.getSelectedItem().toString()==getText(R.string.maleAgeRange1)){
+                            iAgeRange=2;
+                        }else{
+                            iAgeRange=3;
+                        }
                         break;
                 }
-                strSug+="興趣:";
+            String strHabbit="";
+            strHabbit+="興趣:";
             if(mcheBox1.isChecked()){
-                strSug+=mcheBox1.getText()+" ";
+                strHabbit+=mcheBox1.getText()+" ";
             }
             if(mcheBox2.isChecked()){
-                strSug+=mcheBox2.getText()+" ";
+                strHabbit+=mcheBox2.getText()+" ";
             }
             if(mcheBox3.isChecked()){
-                strSug+=mcheBox3.getText()+" ";
+                strHabbit+=mcheBox3.getText()+" ";
             }
             if(mcheBox4.isChecked()){
-                strSug+=mcheBox4.getText()+" ";
+                strHabbit+=mcheBox4.getText()+" ";
             }
             if(mcheBox5.isChecked()){
-                strSug+=mcheBox5.getText()+" ";
+                strHabbit+=mcheBox5.getText()+" ";
             }
             if(mcheBox6.isChecked()){
-                strSug+=mcheBox6.getText()+" ";
+                strHabbit+=mcheBox6.getText()+" ";
             }
             if(mcheBox7.isChecked()){
-                strSug+=mcheBox7.getText()+" ";
+                strHabbit+=mcheBox7.getText()+" ";
             }
             if(mcheBox8.isChecked()){
-                strSug+=mcheBox8.getText()+" ";
+                strHabbit+=mcheBox8.getText()+" ";
             }
             if(mcheBox9.isChecked()){
-                strSug+=mcheBox1.getText()+" ";
+                strHabbit+=mcheBox1.getText()+" ";
             }
             if(mcheBox10.isChecked()){
-                strSug+=mcheBox10.getText()+" ";
+                strHabbit+=mcheBox10.getText()+" ";
             }
-            mTxtSug.setText(strSug);
+            mTxtSug.setText(ms.getSuggestion(strSex,iAgeRange));
+            mTxtHabbit.setText(strHabbit);
         }
     };
 }

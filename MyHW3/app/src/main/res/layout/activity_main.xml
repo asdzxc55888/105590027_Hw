@@ -132,6 +132,12 @@
         android:textSize="18sp" />
 
     <TextView
+        android:id="@+id/txtHabbit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/habbit" />
+
+    <TextView
         android:id="@+id/txtSug"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
