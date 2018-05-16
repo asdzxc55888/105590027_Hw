@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">婚姻建議</string>
-    <string name="text1">Sex</string>
-    <string name="text3">Age</string>
-    <string name="EtxtAge" />
-    <string name="EtxtSex" />
-    <string name="button">確定</string>
-    <string name="OutputTxt" />
-</resources>
