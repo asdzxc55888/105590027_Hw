@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">HW2#:何韋辰</string>
+    <string name="sex">sex</string>
+    <string name="sex_hint">(輸入性別)</string>
+    <string name="age">age</string>
+    <string name="age_hint">(輸入年齡)</string>
+    <string name="btn_ok">Ok</string>
+    <string name="suggestion">Suggestion：</string>
+    <string name="sug_not_hurry">not hurry。</string>
+    <string name="sug_get_married">get married！</string>
+    <string name="sug_find_couple">find a couple</string>
+    <string name="sex_male">male</string>
+</resources>
